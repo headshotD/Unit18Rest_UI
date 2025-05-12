@@ -13,29 +13,12 @@ public class Specs {
     public static RequestSpecification RequestSpec = with()
             .filter(withCustomTemplates())
             .log().all()
-            .contentType(JSON)
-            .header("x-api-key", "reqres-free-v1");
+            .header("User-Agent", "Mozilla/5.0")
+            .header("Accept", "application/json")
+            .contentType(JSON);
 
     public static ResponseSpecification loginResponseSpec = new ResponseSpecBuilder()
             .expectStatusCode(200)
-            .log(LogDetail.ALL)
-            .build();
-
-    public static ResponseSpecification badEmailResponseSpec = new ResponseSpecBuilder()
-            .expectStatusCode(400)
-            .log(LogDetail.ALL)
-            .build();
-    public static ResponseSpecification missingPasswordResponseSpec = new ResponseSpecBuilder()
-            .expectStatusCode(400)
-            .log(LogDetail.ALL)
-            .build();
-
-    public static ResponseSpecification getUsersPageResponseSpec = new ResponseSpecBuilder()
-            .expectStatusCode(200)
-            .log(LogDetail.ALL)
-            .build();
-    public static ResponseSpecification deleteUsersPageResponseSpec = new ResponseSpecBuilder()
-            .expectStatusCode(204)
             .log(LogDetail.ALL)
             .build();
 }

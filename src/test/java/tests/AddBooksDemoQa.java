@@ -14,7 +14,7 @@ import static specs.Specs.RequestSpec;
 import static specs.Specs.loginResponseSpec;
 
 @Tag("AllApi")
-public class AuthDenoQa extends TestBase {
+public class AddBooksDemoQa extends TestBase {
 
     @Test
     @DisplayName("Successful authentication test")

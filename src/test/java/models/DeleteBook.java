@@ -6,6 +6,6 @@ import lombok.Data;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data
-public class UsersBodyModel {
-    String page;
+public class DeleteBook {
+    String isbn, userId;
 }
