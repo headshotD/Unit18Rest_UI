@@ -12,6 +12,8 @@ public class TestBase {
     @BeforeAll
     static void configuration() {
         Configuration.baseUrl = "https://demoqa.com";
+        Configuration.pageLoadStrategy = "eager";
+        Configuration.holdBrowserOpen = true;
         RestAssured.baseURI = "https://demoqa.com";
         RestAssured.config = RestAssured.config()
                 .sslConfig(sslConfig().with().relaxedHTTPSValidation());
