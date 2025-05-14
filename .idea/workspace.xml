@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fbec7553-953a-4d83-9504-e1b7a606a00c" name="Changes" comment="added tests" />
+    <list default="true" id="fbec7553-953a-4d83-9504-e1b7a606a00c" name="Changes" comment="optimized tests">
+      <change afterPath="$PROJECT_DIR$/src/test/java/helpers/Attach.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.8/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.8/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.8/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.8/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.8/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.8/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/BookStoreApplicationFullAPITest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/BookStoreApplicationFullAPITest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/BookStoreApplicationUITest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/BookStoreApplicationUITest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/TestBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/TestBase.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -71,6 +85,7 @@
     "Gradle.AddBooksDemoQa.successAuthTest.executor": "Run",
     "Gradle.AddBooksTest.addBooksTest.executor": "Run",
     "Gradle.BookStoreApplicationFullAPITest.deleteBookTest.executor": "Run",
+    "Gradle.BookStoreApplicationFullAPITest.executor": "Run",
     "Gradle.BookStoreApplicationUITest.executor": "Run",
     "Gradle.BookStoreOperationsTests.deleteBookTest.executor": "Run",
     "Gradle.BookStoreOperationsTests.executor": "Run",
@@ -101,7 +116,31 @@
       <recent name="models" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.BookStoreApplicationUITest">
+  <component name="RunManager" selected="Gradle.BookStoreApplicationFullAPITest.deleteBookTest">
+    <configuration name="BookStoreApplicationFullAPITest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;tests.BookStoreApplicationFullAPITest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration name="BookStoreApplicationFullAPITest.deleteBookTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -140,30 +179,6 @@
             <option value=":test" />
             <option value="--tests" />
             <option value="&quot;tests.BookStoreApplicationUITest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="BookStoreOperationsTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;tests.BookStoreOperationsTests&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -224,11 +239,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.BookStoreApplicationUITest" />
         <item itemvalue="Gradle.BookStoreApplicationFullAPITest.deleteBookTest" />
+        <item itemvalue="Gradle.BookStoreApplicationUITest" />
+        <item itemvalue="Gradle.BookStoreApplicationFullAPITest" />
         <item itemvalue="Gradle.CollectionTestsApiWithUI" />
         <item itemvalue="Gradle.BookStoreOperationsTests.deleteBookTest" />
-        <item itemvalue="Gradle.BookStoreOperationsTests" />
       </list>
     </recent_temporary>
   </component>
@@ -257,12 +272,32 @@
       <option name="project" value="LOCAL" />
       <updated>1747248374032</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="optimized tests">
+      <option name="closed" value="true" />
+      <created>1747249005865</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1747249005865</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="added tests" />
+    <MESSAGE value="optimized tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="optimized tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
