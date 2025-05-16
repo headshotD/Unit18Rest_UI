@@ -22,22 +22,25 @@ public class Specs {
             .header("Accept", "application/json")
             .contentType(JSON);
 
-    public static ResponseSpecification loginResponseSpec = new ResponseSpecBuilder()
-            .expectStatusCode(200)
-            .log(LogDetail.ALL)
-            .build();
+    public static ResponseSpecification loginResponseSpec(int statusCode) {
+        return new ResponseSpecBuilder()
+        .expectStatusCode(statusCode)
+                .log(LogDetail.ALL)
+                .build();
+    }
 
-    public static ResponseSpecification addBookResponseSpec = new ResponseSpecBuilder()
-            .expectStatusCode(201)
-            .log(LogDetail.ALL)
-            .build();
+    public static ResponseSpecification addBookResponseSpec(int statusCode) {
+        return new ResponseSpecBuilder()
+                .expectStatusCode(statusCode)
+                .log(LogDetail.ALL)
+                .build();
+    }
 
-    public static ResponseSpecification DeleteAllBooksResponseSpec = new ResponseSpecBuilder()
-            .expectStatusCode(204)
-            .log(LogDetail.ALL)
-            .build();
-    public static ResponseSpecification DeleteSoloBooksResponseSpec = new ResponseSpecBuilder()
-            .expectStatusCode(204)
-            .log(LogDetail.ALL)
-            .build();
+    public static ResponseSpecification DeleteBooksResponseSpec(int statusCode) {
+        return new ResponseSpecBuilder()
+                .expectStatusCode(statusCode)
+                .log(LogDetail.ALL)
+                .build();
+    }
+
 }

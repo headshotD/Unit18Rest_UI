@@ -19,7 +19,7 @@ public class Books extends TestBase {
                 .when()
                 .delete("/BookStore/v1/Books")
                 .then()
-                .spec(DeleteAllBooksResponseSpec);
+                .spec(DeleteBooksResponseSpec(204));
     }
 
     public static void addBook(String token, String userId, String isbn){
@@ -31,7 +31,7 @@ public class Books extends TestBase {
                     .when()
                     .post("/BookStore/v1/Books")
                     .then()
-                    .spec(addBookResponseSpec);
+                    .spec(addBookResponseSpec(201));
     }
 
     public static void deleteBook(String token, String userId, String isbn) {
@@ -43,7 +43,7 @@ public class Books extends TestBase {
                 .when()
                 .delete("/BookStore/v1/Book")
                 .then()
-                .spec(DeleteSoloBooksResponseSpec);
+                .spec(DeleteBooksResponseSpec(204));
     }
 
     public static UserBooksResponseModel getUserBooks(String token, String userId) {
@@ -52,7 +52,7 @@ public class Books extends TestBase {
                 .when()
                 .get("/Account/v1/User/" + userId)
                 .then()
-                .spec(loginResponseSpec)
+                .spec(loginResponseSpec(200))
                 .extract().response();
 
         return response.as(UserBooksResponseModel.class);

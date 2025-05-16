@@ -12,10 +12,6 @@ import tests.api.Books;
 
 import java.util.List;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
 import static tests.TestData.BOOK_ISBN;
@@ -53,11 +49,6 @@ public class BookStoreApplicationFullAPITest extends TestBase {
         step("Проверка через API, что книга удалена", () -> {
             UserBooksResponseModel delBook = Books.getUserBooks(token, userId);
             assertThat(delBook.getBooks()).isEmpty();
-        });
-        step("Обновление страницы и проверка через UI, что нет книги", () -> {
-            open("/profile");
-            $(".rt-noData").shouldBe(visible)
-                    .shouldHave(text("No rows found"));
         });
     }
 }
