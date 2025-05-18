@@ -14,7 +14,7 @@ import static specs.Specs.responseSpec;
 
 public class AccountApiSteps {
 
-    public static LoginResponseModel loginApi() {
+    public static LoginResponseModel login() {
         LoginRequestModel request = new LoginRequestModel(TestData.USERNAME, TestData.PASSWORD);
         return given(Specs.requestSpec)
                 .body(request)
@@ -26,7 +26,7 @@ public class AccountApiSteps {
                 .extract().as(LoginResponseModel.class);
     }
 
-    public static UserBooksResponseModel getUserBooksApi(String token, String userId) {
+    public static UserBooksResponseModel getUserBooks(String token, String userId) {
         Response response = given(requestSpec)
                 .header("Authorization", "Bearer " + token)
                 .when()

@@ -13,7 +13,7 @@ public class LoginExtension implements BeforeEachCallback {
 
     @Override
     public void beforeEach(ExtensionContext context) {
-        LoginResponseModel response = AccountApiSteps.loginApi();
+        LoginResponseModel response = AccountApiSteps.login();
 
         open("/images/Toolsqa.jpg");
         getWebDriver().manage().addCookie(new Cookie("userID", response.getUserId()));

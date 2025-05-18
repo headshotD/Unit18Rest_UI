@@ -26,7 +26,7 @@ public class BookStoreApplicationUITest extends TestBase {
     @WithLogin
     @DisplayName("Удаление книги через UI")
     void deleteBookFullAPITest() {
-        LoginResponseModel auth = step("Авторизация через API", AccountApiSteps::loginApi);
+        LoginResponseModel auth = step("Авторизация через API", AccountApiSteps::login);
         String token = auth.getToken();
         String userId = auth.getUserId();
 
@@ -39,7 +39,7 @@ public class BookStoreApplicationUITest extends TestBase {
         );
 
         step("Проверка, что книга добавлена через API", () -> {
-            UserBooksResponseModel booksResp = AccountApiSteps.getUserBooksApi(token, userId);
+            UserBooksResponseModel booksResp = AccountApiSteps.getUserBooks(token, userId);
             List<BookModel> userBooks = booksResp.getBooks();
             assertThat(userBooks).extracting(BookModel::getIsbn).contains(BOOK_ISBN);
         });
@@ -52,7 +52,7 @@ public class BookStoreApplicationUITest extends TestBase {
         });
 
         step("Проверка через API, что книга удалена", () -> {
-            UserBooksResponseModel delBook = AccountApiSteps.getUserBooksApi(token, userId);
+            UserBooksResponseModel delBook = AccountApiSteps.getUserBooks(token, userId);
             assertThat(delBook.getBooks()).isEmpty();
         });
         step("Обновление страницы и проверка через UI, что нет книги", () -> {
