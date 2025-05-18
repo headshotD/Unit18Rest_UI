@@ -1,7 +1,5 @@
-package tests.api;
+package api;
 
-import io.restassured.response.Response;
-import models.UserBooksResponseModel;
 import tests.TestBase;
 
 import static io.restassured.RestAssured.given;
@@ -9,7 +7,7 @@ import static io.restassured.http.ContentType.JSON;
 import static java.lang.String.format;
 import static specs.Specs.*;
 
-public class Books extends TestBase {
+public class BookStoreApiSteps extends TestBase {
 
     public static void deleteAllBooks(String token, String userId) {
         given(requestSpec)
@@ -19,19 +17,19 @@ public class Books extends TestBase {
                 .when()
                 .delete("/BookStore/v1/Books")
                 .then()
-                .spec(DeleteBooksResponseSpec(204));
+                .spec(responseSpec(204));
     }
 
     public static void addBook(String token, String userId, String isbn){
         String bookData = format("{\"userId\":\"%s\",\"collectionOfIsbns\":[{\"isbn\":\"%s\"}]}",
                 userId, isbn);
-            given(addBookRequestSpec)
+            given(requestSpec)
                     .header("Authorization", "Bearer " + token)
                     .body(bookData)
                     .when()
                     .post("/BookStore/v1/Books")
                     .then()
-                    .spec(addBookResponseSpec(201));
+                    .spec(responseSpec(201));
     }
 
     public static void deleteBook(String token, String userId, String isbn) {
@@ -43,19 +41,7 @@ public class Books extends TestBase {
                 .when()
                 .delete("/BookStore/v1/Book")
                 .then()
-                .spec(DeleteBooksResponseSpec(204));
-    }
-
-    public static UserBooksResponseModel getUserBooks(String token, String userId) {
-        Response response = given(requestSpec)
-                .header("Authorization", "Bearer " + token)
-                .when()
-                .get("/Account/v1/User/" + userId)
-                .then()
-                .spec(loginResponseSpec(200))
-                .extract().response();
-
-        return response.as(UserBooksResponseModel.class);
+                .spec(responseSpec(204));
     }
 
 }

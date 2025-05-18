@@ -7,8 +7,8 @@ import models.UserBooksResponseModel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import tests.api.AuthorizationApi;
-import tests.api.Books;
+import api.AccountApiSteps;
+import api.BookStoreApiSteps;
 
 import java.util.List;
 
@@ -23,31 +23,31 @@ public class BookStoreApplicationFullAPITest extends TestBase {
     @WithLogin
     @DisplayName("Удаление книги через UI")
     void deleteBookUITest() {
-        LoginResponseModel auth = step("Авторизация через API", AuthorizationApi::login);
+        LoginResponseModel auth = step("Авторизация через API", AccountApiSteps::loginApi);
         String token = auth.getToken();
         String userId = auth.getUserId();
 
         step("Удаление всех книг с корзины", () ->
-                Books.deleteAllBooks(token, userId)
+                BookStoreApiSteps.deleteAllBooks(token, userId)
         );
 
         step("Добавление книги через API", () ->
-                Books.addBook(token, userId, BOOK_ISBN)
+                BookStoreApiSteps.addBook(token, userId, BOOK_ISBN)
         );
 
         step("Проверка, что книга добавлена через API", () -> {
-            UserBooksResponseModel booksResp = Books.getUserBooks(token, userId);
+            UserBooksResponseModel booksResp = AccountApiSteps.getUserBooksApi(token, userId);
             List<BookModel> userBooks = booksResp.getBooks();
             assertThat(userBooks).extracting(BookModel::getIsbn).contains(BOOK_ISBN);
         });
 
 
         step("Удаление конкретной книги через API", () -> {
-            Books.deleteBook(token, userId, BOOK_ISBN);
+            BookStoreApiSteps.deleteBook(token, userId, BOOK_ISBN);
         });
 
         step("Проверка через API, что книга удалена", () -> {
-            UserBooksResponseModel delBook = Books.getUserBooks(token, userId);
+            UserBooksResponseModel delBook = AccountApiSteps.getUserBooksApi(token, userId);
             assertThat(delBook.getBooks()).isEmpty();
         });
     }

@@ -16,31 +16,12 @@ public class Specs {
             .header("Accept", "application/json")
             .contentType(JSON);
 
-    public static RequestSpecification addBookRequestSpec = with()
-            .filter(withCustomTemplates())
-            .log().all()
-            .header("Accept", "application/json")
-            .contentType(JSON);
 
-    public static ResponseSpecification loginResponseSpec(int statusCode) {
+    public static ResponseSpecification responseSpec(int statusCode) {
         return new ResponseSpecBuilder()
         .expectStatusCode(statusCode)
                 .log(LogDetail.ALL)
                 .build();
     }
 
-    public static ResponseSpecification addBookResponseSpec(int statusCode) {
-        return new ResponseSpecBuilder()
-                .expectStatusCode(statusCode)
-                .log(LogDetail.ALL)
-                .build();
-    }
-
-    public static ResponseSpecification DeleteBooksResponseSpec(int statusCode) {
-        return new ResponseSpecBuilder()
-                .expectStatusCode(statusCode)
-                .log(LogDetail.ALL)
-                .build();
-    }
-
-}
+   }
